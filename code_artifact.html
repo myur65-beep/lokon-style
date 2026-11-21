@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛОКОН & СТИЛЬ — Семейная студия красоты и парикмахерская</title>
+    <meta name="description" content="Стрижки и окрашивания, которые легко укладывать дома каждый день. Семейная парикмахерская в центре Йошкар-Олы.">
+    
+    <!-- Подключение Google Fonts: Cormorant Garamond для заголовков и Montserrat для основного текста -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Настройка цветовой палитры и шрифтов в Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF8F5',
+                        'cream-dark': '#F2EDE4',
+                        graphite: '#1F2421',
+                        'graphite-light': '#4A524D',
+                        terracotta: '#C87D55',
+                        'terracotta-dark': '#B06740',
+                        sage: '#5A716A',
+                        'sage-light': '#EBF0EE',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(31, 36, 33, 0.08)',
+                        'card': '0 4px 20px -2px rgba(31, 36, 33, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-graphite font-sans antialiased selection:bg-terracotta selection:text-white overflow-x-hidden">
+
+    <!-- ================= 1. ШАПКА (HEADER) ================= -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-cream/90 backdrop-blur-md border-b border-graphite/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Логотип -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition-colors duration-300">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="6" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                            <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                            <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-wide text-graphite block leading-none">ЛОКОН & СТИЛЬ</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-sage font-medium block mt-1">Студия красоты</span>
+                    </div>
+                </a>
+
+                <!-- Навигация (Десктоп) -->
+                <nav class="hidden lg:flex items-center space-x-7">
+                    <a href="#services" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Услуги</a>
+                    <a href="#masters" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Мастера</a>
+                    <a href="#portfolio" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Работы</a>
+                    <a href="#promo" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Акции</a>
+                    <a href="#reviews" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Отзывы</a>
+                    <a href="#contacts" class="text-sm font-medium text-graphite hover:text-terracotta transition-colors">Контакты</a>
+                </nav>
+
+                <!-- Телефон и кнопка записи (Десктоп) -->
+                <div class="hidden md:flex items-center gap-5">
+                    <a href="tel:+79177004921" class="text-sm font-semibold text-graphite hover:text-terracotta transition-colors flex items-center gap-2">
+                        <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        +7 (917) 700-49-21
+                    </a>
+                    <button onclick="openBookingModal()" class="bg-terracotta hover:bg-terracotta-dark text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md active:scale-95">
+                        Записаться онлайн
+                    </button>
+                </div>
+
+                <!-- Кнопка мобильного меню -->
+                <div class="flex items-center gap-3 lg:hidden">
+                    <a href="tel:+79177004921" class="md:hidden p-2.5 rounded-full bg-cream-dark text-graphite hover:text-terracotta" aria-label="Позвонить">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </a>
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl bg-cream-dark text-graphite hover:text-terracotta focus:outline-none" aria-label="Открыть меню">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Выпадающее мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream border-b border-graphite/10 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#services" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Услуги и цены</a>
+            <a href="#masters" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Мастера</a>
+            <a href="#portfolio" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Наши работы</a>
+            <a href="#promo" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Акции</a>
+            <a href="#reviews" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Отзывы</a>
+            <a href="#contacts" class="mobile-link block py-2.5 px-3 rounded-xl text-base font-medium text-graphite hover:bg-cream-dark">Контакты</a>
+            <div class="pt-3 border-t border-graphite/10 flex flex-col gap-3">
+                <a href="tel:+79177004921" class="text-center font-semibold text-graphite py-2">+7 (917) 700-49-21</a>
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-terracotta text-white font-medium py-3.5 rounded-full shadow-sm">
+                    Записаться онлайн
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. ПЕРВЫЙ ЭКРАН (HERO) ================= -->
+    <section class="pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
+        <!-- Декоративные фоновые пятна -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-sage/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-10 left-0 w-80 h-80 bg-terracotta/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- Текстовая часть -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-light text-sage text-xs sm:text-sm font-medium tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                        Йошкар-Ола • Центр города • Ежедневно 09:00 – 21:00
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-graphite leading-[1.12]">
+                        Стрижки и окрашивания, которые <span class="text-terracotta italic font-semibold">легко укладывать</span> дома каждый день
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-graphite-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Семейная парикмахерская в центре города. Подберём форму по типу лица и структуре волос без навязывания лишних процедур.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openBookingModal('Стрижка / окрашивание (акция -15%)')" class="w-full sm:w-auto bg-terracotta hover:bg-terracotta-dark text-white font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-soft hover:shadow-lg flex items-center justify-center gap-2 active:scale-95">
+                            <span>Записаться со скидкой 15%</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </button>
+                        <a href="#services" class="w-full sm:w-auto bg-transparent hover:bg-cream-dark text-graphite border border-graphite/25 font-medium px-8 py-4 rounded-full transition-all duration-300 text-center">
+                            Смотреть прайс
+                        </a>
+                    </div>
+
+                    <!-- Мини-факты под кнопками -->
+                    <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-graphite-light">
+                        <div class="flex items-center gap-2">
+                            <span class="text-terracotta font-bold text-base">★ 5.0</span>
+                            <span>на Яндекс.Картах и 2ГИС</span>
+                        </div>
+                        <span class="hidden sm:inline text-graphite/20">•</span>
+                        <div>Бесплатная парковка у входа</div>
+                    </div>
+                </div>
+
+                <!-- Атмосферное изображение салона -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-soft aspect-[4/5] max-w-md mx-auto bg-cream-dark">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" 
+                             alt="Интерьер и работа стилиста в студии ЛОКОН & СТИЛЬ" 
+                             onerror="this.src='https://placehold.co/800x1000/F2EDE4/1F2421?text=ЛОКОН+%26+СТИЛЬ'"
+                             class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-graphite/40 via-transparent to-transparent"></div>
+                        
+                        <!-- Плавающая карточка поверх фото -->
+                        <div class="absolute bottom-5 left-5 right-5 bg-cream/95 backdrop-blur-md p-4 rounded-2xl shadow-card border border-white/60">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-full bg-sage text-white flex items-center justify-center shrink-0 font-serif text-xl font-bold">
+                                    15%
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-wider text-sage font-semibold">Знакомство с мастером</p>
+                                    <p class="text-sm font-medium text-graphite">Скидка на первый визит + уход-маска в подарок</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. ПРЕИМУЩЕСТВА (4 КАРТОЧКИ) ================= -->
+    <section class="py-14 md:py-20 bg-cream-dark/60 border-y border-graphite/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Карточка 1 -->
+                <div class="bg-cream p-7 rounded-3xl shadow-card border border-graphite/5 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-graphite mb-2">Мастера со стажем от 7 лет</h3>
+                    <p class="text-sm text-graphite-light leading-relaxed">Регулярно повышаем квалификацию в ведущих школах колористики и современных техник стрижки.</p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="bg-cream p-7 rounded-3xl shadow-card border border-graphite/5 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage/15 text-sage flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-graphite mb-2">Профессиональная косметика</h3>
+                    <p class="text-sm text-graphite-light leading-relaxed">Работаем на оригинальных составах L'Oréal Professionnel, Matrix и Estel Couture для блеска и здоровья волос.</p>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="bg-cream p-7 rounded-3xl shadow-card border border-graphite/5 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-graphite mb-2">Стерильность по СанПиН</h3>
+                    <p class="text-sm text-graphite-light leading-relaxed">Многоэтапная дезинфекция инструментов в сухожаре. Индивидуальные крафт-пакеты вскрываем строго при вас.</p>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="bg-cream p-7 rounded-3xl shadow-card border border-graphite/5 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage/15 text-sage flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-graphite mb-2">Комфорт для всей семьи</h3>
+                    <p class="text-sm text-graphite-light leading-relaxed">Свежесваренный зерновой кофе, листовой чай, быстрый Wi-Fi и уютный детский уголок с играми и раскрасками.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. УСЛУГИ И ЦЕНЫ ================= -->
+    <section id="services" class="py-16 md:py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Честный прайс</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite mt-2">Услуги и стоимость</h2>
+                <p class="text-graphite-light text-sm sm:text-base mt-3">Фиксированные цены на стрижки и прозрачный расчёт окрашивания перед началом работы</p>
+            </div>
+
+            <!-- Вкладки фильтрации -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="service-tabs">
+                <button data-filter="all" class="service-tab active px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-graphite text-white shadow-sm">
+                    Все услуги
+                </button>
+                <button data-filter="women" class="service-tab px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-cream-dark text-graphite hover:bg-graphite/10">
+                    Женский зал
+                </button>
+                <button data-filter="men" class="service-tab px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-cream-dark text-graphite hover:bg-graphite/10">
+                    Мужской зал
+                </button>
+                <button data-filter="color" class="service-tab px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-cream-dark text-graphite hover:bg-graphite/10">
+                    Окрашивание и уход
+                </button>
+            </div>
+
+            <!-- Список услуг -->
+            <div class="space-y-4" id="services-list">
+                <!-- Услуга 1 -->
+                <div data-category="women" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2.5">
+                            <h3 class="font-semibold text-base sm:text-lg text-graphite">Женская модельная стрижка + укладка</h3>
+                            <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-sage-light text-sage text-xs font-medium">Хит</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-graphite-light">Мытьё головы, подбор формы по типу лица, стрижка и лёгкая укладка брашингом (60 мин)</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">1 600 ₽</span>
+                        <button onclick="openBookingModal('Женская модельная стрижка + укладка (1 600 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 2 -->
+                <div data-category="men" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Мужская стрижка (машинка + ножницы)</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Классическая или современная стрижка, мытьё головы до и после, укладка стайлингом (45 мин)</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">1 100 ₽</span>
+                        <button onclick="openBookingModal('Мужская стрижка (1 100 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 3 -->
+                <div data-category="women men" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Детская стрижка (до 10 лет)</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Бережная стрижка в комфортной обстановке без слёз и спешки (30–40 мин)</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">800 ₽</span>
+                        <button onclick="openBookingModal('Детская стрижка до 10 лет (800 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 4 -->
+                <div data-category="color" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2.5">
+                            <h3 class="font-semibold text-base sm:text-lg text-graphite">Сложное окрашивание (AirTouch / Шатуш / Балаяж)</h3>
+                            <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-terracotta/15 text-terracotta text-xs font-medium">Топ</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-graphite-light">Плавный естественный переход цвета с ноской до 6–8 месяцев, тонирование и защита волос</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">от 5 500 ₽</span>
+                        <button onclick="openBookingModal('Сложное окрашивание AirTouch / Шатуш / Балаяж (от 5 500 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 5 -->
+                <div data-category="color" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Окрашивание в один тон</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Стойкое окрашивание, закрашивание седины или обновление оттенка красителями L'Oréal / Matrix</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">от 2 800 ₽</span>
+                        <button onclick="openBookingModal('Окрашивание в один тон (от 2 800 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 6 -->
+                <div data-category="color" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Салонный уход «Счастье для волос»</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Глубокое увлажнение, питание и восстановление липидного слоя для гладкости и блеска</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">2 200 ₽</span>
+                        <button onclick="openBookingModal('Салонный уход «Счастье для волос» (2 200 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 7 -->
+                <div data-category="women" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Вечерняя или повседневная укладка</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Локоны, объём на брашинг или элегантный пучок со стойкой фиксацией без утяжеления</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">от 1 400 ₽</span>
+                        <button onclick="openBookingModal('Вечерняя или повседневная укладка (от 1 400 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Услуга 8 -->
+                <div data-category="women" class="service-item bg-white/80 hover:bg-white p-5 sm:p-6 rounded-2xl border border-graphite/10 shadow-card transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-base sm:text-lg text-graphite">Оформление и окрашивание бровей</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light">Архитектура бровей, деликатная коррекция пинцетом/воском и стойкое окрашивание краской или хной</p>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-5 pt-2 sm:pt-0 border-t sm:border-t-0 border-graphite/5">
+                        <span class="font-serif text-2xl font-bold text-graphite whitespace-nowrap">900 ₽</span>
+                        <button onclick="openBookingModal('Оформление и окрашивание бровей (900 ₽)')" class="px-5 py-2.5 rounded-full bg-cream-dark hover:bg-terracotta text-graphite hover:text-white text-sm font-medium transition-colors whitespace-nowrap">
+                            Записаться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. БЛОК АКЦИИ (BANNER) ================= -->
+    <section id="promo" class="py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative rounded-3xl bg-sage text-white overflow-hidden shadow-soft p-8 sm:p-12 lg:p-14">
+                <!-- Декоративные круги -->
+                <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 pointer-events-none"></div>
+                <div class="absolute -bottom-24 left-1/3 w-64 h-64 rounded-full bg-terracotta/30 blur-2xl pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-5">
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-white/15 text-xs uppercase tracking-widest font-semibold">
+                            Специальное предложение
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+                            Скидка 15% на первый визит и уход-маска в подарок
+                        </h2>
+                        <p class="text-white/85 text-sm sm:text-base max-w-xl leading-relaxed">
+                            Познакомьтесь с нашими мастерами на выгодных условиях. Акция действует на любую стрижку или окрашивание при записи с сайта.
+                        </p>
+
+                        <!-- Таймер до конца акции -->
+                        <div class="pt-2">
+                            <p class="text-xs uppercase tracking-wider text-white/70 mb-2.5">До конца действия предложения осталось:</p>
+                            <div class="flex items-center gap-3 sm:gap-4" id="promo-timer">
+                                <div class="bg-graphite/25 backdrop-blur-sm rounded-2xl px-4 py-2.5 text-center min-w-[68px]">
+                                    <span id="timer-days" class="font-serif text-2xl sm:text-3xl font-bold block leading-none">02</span>
+                                    <span class="text-[11px] text-white/75">дня</span>
+                                </div>
+                                <span class="text-xl font-bold">:</span>
+                                <div class="bg-graphite/25 backdrop-blur-sm rounded-2xl px-4 py-2.5 text-center min-w-[68px]">
+                                    <span id="timer-hours" class="font-serif text-2xl sm:text-3xl font-bold block leading-none">14</span>
+                                    <span class="text-[11px] text-white/75">часов</span>
+                                </div>
+                                <span class="text-xl font-bold">:</span>
+                                <div class="bg-graphite/25 backdrop-blur-sm rounded-2xl px-4 py-2.5 text-center min-w-[68px]">
+                                    <span id="timer-minutes" class="font-serif text-2xl sm:text-3xl font-bold block leading-none">38</span>
+                                    <span class="text-[11px] text-white/75">минут</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Форма быстрой записи -->
+                    <div class="lg:col-span-5 bg-cream text-graphite p-6 sm:p-8 rounded-3xl shadow-lg">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Зафиксировать скидку 15%</h3>
+                        <p class="text-xs text-graphite-light mb-5">Оставьте контакты — администратор подберёт удобное окно за 5 минут</p>
+                        
+                        <form id="promo-form" class="space-y-3.5">
+                            <div>
+                                <input type="text" name="name" required placeholder="Ваше имя" 
+                                       class="w-full px-4 py-3.5 rounded-xl bg-cream-dark/70 border border-graphite/10 text-sm focus:outline-none focus:border-terracotta transition-colors">
+                            </div>
+                            <div>
+                                <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" 
+                                       class="phone-mask w-full px-4 py-3.5 rounded-xl bg-cream-dark/70 border border-graphite/10 text-sm focus:outline-none focus:border-terracotta transition-colors">
+                            </div>
+                            <button type="submit" class="w-full bg-terracotta hover:bg-terracotta-dark text-white font-medium py-3.5 rounded-xl transition-all shadow-sm hover:shadow active:scale-95">
+                                Получить скидку и записаться
+                            </button>
+                            <p class="text-[11px] text-graphite-light text-center leading-snug">
+                                Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. НАШИ МАСТЕРА ================= -->
+    <section id="masters" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Команда</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite mt-2">Мастера, которым доверяют</h2>
+                <p class="text-graphite-light text-sm sm:text-base mt-3">Внимательно слушаем пожелания, учитываем особенности роста волос и даём честные рекомендации</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Мастер 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-graphite/5 flex flex-col group">
+                    <div class="aspect-[4/4] overflow-hidden bg-cream-dark relative">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=700&q=80" 
+                             alt="Анна Соколова — топ-стилист, колорист"
+                             onerror="this.src='https://placehold.co/600x600/F2EDE4/1F2421?text=Анна+Соколова'"
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-cream/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-graphite shadow-sm">
+                            Стаж 11 лет
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-graphite">Анна Соколова</h3>
+                            <p class="text-sm font-medium text-terracotta mt-0.5">Топ-стилист, колорист</p>
+                            <p class="text-sm text-graphite-light mt-3 leading-relaxed">
+                                Специализируется на сложных техниках рассветления (AirTouch, Шатуш), выходе из тёмного и каскадных женских стрижках.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('', 'Анна Соколова')" class="mt-6 w-full py-3 rounded-full border border-graphite/20 hover:border-terracotta hover:bg-terracotta hover:text-white text-sm font-medium transition-all">
+                            Записаться к Анне
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Мастер 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-graphite/5 flex flex-col group">
+                    <div class="aspect-[4/4] overflow-hidden bg-cream-dark relative">
+                        <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?auto=format&fit=crop&w=700&q=80" 
+                             alt="Дмитрий Волков — мастер мужских и женских стрижек"
+                             onerror="this.src='https://placehold.co/600x600/F2EDE4/1F2421?text=Дмитрий+Волков'"
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-cream/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-graphite shadow-sm">
+                            Стаж 8 лет
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-graphite">Дмитрий Волков</h3>
+                            <p class="text-sm font-medium text-terracotta mt-0.5">Мастер мужских и женских стрижек</p>
+                            <p class="text-sm text-graphite-light mt-3 leading-relaxed">
+                                Эксперт по точным геометрическим формам, современным мужским стрижкам, фейдам и текстурным коротким стрижкам (пикси, боб).
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('', 'Дмитрий Волков')" class="mt-6 w-full py-3 rounded-full border border-graphite/20 hover:border-terracotta hover:bg-terracotta hover:text-white text-sm font-medium transition-all">
+                            Записаться к Дмитрию
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Мастер 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-graphite/5 flex flex-col group">
+                    <div class="aspect-[4/4] overflow-hidden bg-cream-dark relative">
+                        <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&w=700&q=80" 
+                             alt="Елена Морозова — мастер-универсал"
+                             onerror="this.src='https://placehold.co/600x600/F2EDE4/1F2421?text=Елена+Морозова'"
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-cream/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-graphite shadow-sm">
+                            Стаж 7 лет
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-graphite">Елена Морозова</h3>
+                            <p class="text-sm font-medium text-terracotta mt-0.5">Мастер-универсал, уходы и детские стрижки</p>
+                            <p class="text-sm text-graphite-light mt-3 leading-relaxed">
+                                Легко находит общий язык с детьми. Выполняет мягкое тонирование, восстанавливающие SPA-уходы и оформление бровей.
+                            </p>
+                        </div>
+                        <button onclick="openBookingModal('', 'Елена Морозова')" class="mt-6 w-full py-3 rounded-full border border-graphite/20 hover:border-terracotta hover:bg-terracotta hover:text-white text-sm font-medium transition-all">
+                            Записаться к Елене
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 7. ПОРТФОЛИО РАБОТ ================= -->
+    <section id="portfolio" class="py-16 md:py-24 bg-cream-dark/60 border-y border-graphite/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Портфолио</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite mt-2">Наши работы</h2>
+                </div>
+                
+                <!-- Фильтры портфолио -->
+                <div class="flex flex-wrap gap-2" id="portfolio-filters">
+                    <button data-work="all" class="work-filter active px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-graphite text-white transition-all">Все</button>
+                    <button data-work="coloring" class="work-filter px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-cream text-graphite hover:bg-graphite/10 transition-all">Окрашивания</button>
+                    <button data-work="haircuts" class="work-filter px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-cream text-graphite hover:bg-graphite/10 transition-all">Стрижки</button>
+                    <button data-work="before-after" class="work-filter px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-cream text-graphite hover:bg-graphite/10 transition-all">До / После</button>
+                </div>
+            </div>
+
+            <!-- Сетка работ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                <!-- Работа 1 -->
+                <div data-work-cat="coloring before-after" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80" 
+                         alt="Сложное окрашивание AirTouch и укладка"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=AirTouch+Блонд'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-terracotta text-white text-xs font-semibold px-3 py-1 rounded-full">До / После</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Анна Соколова</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Рассветление в технике AirTouch</h3>
+                        <p class="text-xs text-white/80 mt-1">Мягкий переход от натуральных корней, без желтизны</p>
+                    </div>
+                </div>
+
+                <!-- Работа 2 -->
+                <div data-work-cat="haircuts" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" 
+                         alt="Современная мужская стрижка"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=Мужская+стрижка'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Дмитрий Волков</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Текстурная мужская стрижка</h3>
+                        <p class="text-xs text-white/80 mt-1">Плавный переход и естественный объём сверху</p>
+                    </div>
+                </div>
+
+                <!-- Работа 3 -->
+                <div data-work-cat="haircuts before-after" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" 
+                         alt="Удлинённый боб и уход"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=Удлинённый+боб'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-sage text-white text-xs font-semibold px-3 py-1 rounded-full">Преображение</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Анна Соколова</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Удлинённый боб + уход «Счастье»</h3>
+                        <p class="text-xs text-white/80 mt-1">Форма держит объём без сложной укладки феном</p>
+                    </div>
+                </div>
+
+                <!-- Работа 4 -->
+                <div data-work-cat="coloring" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" 
+                         alt="Тёплый карамельный балаяж"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=Карамельный+балаяж'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Елена Морозова</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Тёплый медово-карамельный балаяж</h3>
+                        <p class="text-xs text-white/80 mt-1">Тонирование L'Oréal Professionnel для зеркального блеска</p>
+                    </div>
+                </div>
+
+                <!-- Работа 5 -->
+                <div data-work-cat="haircuts" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" 
+                         alt="Каскадная стрижка с лёгкой волной"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=Каскад+и+укладка'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Дмитрий Волков</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Воздушный каскад на длинные волосы</h3>
+                        <p class="text-xs text-white/80 mt-1">Сохранили длину, добавили лёгкость и подвижность</p>
+                    </div>
+                </div>
+
+                <!-- Работа 6 -->
+                <div data-work-cat="coloring before-after" onclick="openLightbox(this)" class="work-card group relative rounded-3xl overflow-hidden aspect-[4/4] bg-cream cursor-pointer shadow-card">
+                    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80" 
+                         alt="Окрашивание в благородный шоколадный оттенок"
+                         onerror="this.src='https://placehold.co/700x700/EBF0EE/1F2421?text=Окрашивание+в+один+тон'"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-4 left-4 bg-terracotta text-white text-xs font-semibold px-3 py-1 rounded-full">До / После</span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="text-xs text-terracotta font-semibold uppercase tracking-wider">Мастер: Елена Морозова</p>
+                        <h3 class="font-serif text-xl font-bold mt-1">Глубокий шоколадный тон + SPA-уход</h3>
+                        <p class="text-xs text-white/80 mt-1">Выравнивание цвета по всей длине и плотные кончики</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 8. ОТЗЫВЫ КЛИЕНТОВ ================= -->
+    <section id="reviews" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Репутация</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite mt-2">Что говорят наши гости</h2>
+                </div>
+                <div class="flex items-center gap-4 bg-white px-5 py-3 rounded-2xl border border-graphite/10 shadow-card">
+                    <div class="text-2xl font-serif font-bold text-terracotta">5.0 ★</div>
+                    <div class="text-xs text-graphite-light">
+                        <p class="font-semibold text-graphite">Высокий рейтинг</p>
+                        <p>Яндекс.Карты и 2ГИС (более 180 оценок)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Отзыв 1 -->
+                <div class="bg-white p-7 rounded-3xl shadow-card border border-graphite/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-terracotta text-sm">★★★★★</div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-cream-dark text-graphite-light">Яндекс.Карты</span>
+                        </div>
+                        <p class="text-sm text-graphite leading-relaxed italic">
+                            «Хожу к Анне уже больше года на AirTouch и стрижку. Самое ценное — волосы отрастают настолько плавно, что можно спокойно ходить полгода, а укладка утром занимает буквально 10 минут брашингом. Очень уютная атмосфера и вкусный капучино!»
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-graphite/5">
+                        <div class="w-10 h-10 rounded-full bg-sage/20 text-sage font-bold flex items-center justify-center text-sm">МК</div>
+                        <div>
+                            <p class="text-sm font-semibold text-graphite">Марина Ковалёва</p>
+                            <p class="text-xs text-graphite-light">Постоянный клиент</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="bg-white p-7 rounded-3xl shadow-card border border-graphite/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-terracotta text-sm">★★★★★</div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-cream-dark text-graphite-light">2ГИС</span>
+                        </div>
+                        <p class="text-sm text-graphite leading-relaxed italic">
+                            «Стрижёмся здесь всей семьёй: я у Дмитрия, жена у Анны, а пятилетнего сына водим к Елене. Сын раньше боялся машинки, но Елена нашла подход за две минуты. Никакого навязывания лишних баночек, всё чётко, стерильно и по времени.»
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-graphite/5">
+                        <div class="w-10 h-10 rounded-full bg-terracotta/20 text-terracotta font-bold flex items-center justify-center text-sm">АС</div>
+                        <div>
+                            <p class="text-sm font-semibold text-graphite">Алексей Смирнов</p>
+                            <p class="text-xs text-graphite-light">Семейный визит</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="bg-white p-7 rounded-3xl shadow-card border border-graphite/5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-terracotta text-sm">★★★★★</div>
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-cream-dark text-graphite-light">Яндекс.Карты</span>
+                        </div>
+                        <p class="text-sm text-graphite leading-relaxed italic">
+                            «Пришла по акции со скидкой 15% на стрижку и уход «Счастье для волос». Мастер предварительно посмотрела структуру волоса, посоветовала не убирать сильно длину, а просто освежить форму. Результат превзошёл ожидания, волосы живые и блестящие!»
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-graphite/5">
+                        <div class="w-10 h-10 rounded-full bg-sage/20 text-sage font-bold flex items-center justify-center text-sm">ОВ</div>
+                        <div>
+                            <p class="text-sm font-semibold text-graphite">Ольга Васильева</p>
+                            <p class="text-xs text-graphite-light">Первый визит</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 9. КОНТАКТЫ И ЗАПИСЬ ================= -->
+    <section id="contacts" class="py-16 md:py-24 bg-cream-dark/80 border-t border-graphite/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Контактная информация -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.2em] text-terracotta font-semibold">Ждём вас в гости</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-graphite mt-2">Контакты студии</h2>
+                    </div>
+
+                    <div class="space-y-5 bg-cream p-6 sm:p-8 rounded-3xl shadow-card border border-graphite/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-terracotta/15 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-graphite-light font-semibold">Адрес</p>
+                                <p class="text-base font-medium text-graphite mt-0.5">г. Йошкар-Ола, ул. Советская, д. 142</p>
+                                <p class="text-xs text-sage mt-1">Вход со стороны бульвара, бесплатная парковка для гостей</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-sage/15 text-sage flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-graphite-light font-semibold">График работы</p>
+                                <p class="text-base font-medium text-graphite mt-0.5">Ежедневно с 09:00 до 21:00</p>
+                                <p class="text-xs text-graphite-light mt-1">Без перерывов и выходных</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-terracotta/15 text-terracotta flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-graphite-light font-semibold">Телефон и мессенджеры</p>
+                                <a href="tel:+79177004921" class="text-lg font-bold text-graphite hover:text-terracotta transition-colors block mt-0.5">
+                                    +7 (917) 700-49-21
+                                </a>
+                                <div class="flex flex-wrap gap-2.5 mt-3">
+                                    <a href="https://wa.me/79177004921" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366]/15 hover:bg-[#25D366] text-[#128C7E] hover:text-white text-xs font-semibold transition-colors">
+                                        WhatsApp
+                                    </a>
+                                    <a href="https://t.me/+79177004921" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0088cc]/15 hover:bg-[#0088cc] text-[#0088cc] hover:text-white text-xs font-semibold transition-colors">
+                                        Telegram
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Стилизованная интерактивная схема проезда + форма обратной связи -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    <!-- Интерактивная SVG-схема проезда -->
+                    <div class="relative rounded-3xl overflow-hidden bg-cream border border-graphite/10 shadow-card h-72 sm:h-80">
+                        <svg class="w-full h-full object-cover" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Фон карты -->
+                            <rect width="800" height="400" fill="#F4F1EA"/>
+                            <!-- Парковая зона / Бульвар -->
+                            <path d="M0 110 Q 400 130 800 90 L 800 175 Q 400 215 0 195 Z" fill="#DCE5E1"/>
+                            <text x="120" y="158" fill="#5A716A" font-family="Montserrat, sans-serif" font-size="13" font-weight="600" letter-spacing="2">БУЛЬВАР ЧАВАЙНА</text>
+                            
+                            <!-- Кварталы -->
+                            <rect x="60" y="235" width="210" height="120" rx="16" fill="#EAE4D7"/>
+                            <rect x="310" y="235" width="240" height="120" rx="16" fill="#EAE4D7"/>
+                            <rect x="590" y="235" width="160" height="120" rx="16" fill="#EAE4D7"/>
+                            <rect x="80" y="15" width="250" height="65" rx="14" fill="#EAE4D7"/>
+                            <rect x="420" y="15" width="290" height="60" rx="14" fill="#EAE4D7"/>
+
+                            <!-- Улица Советская -->
+                            <path d="M0 212 L800 212" stroke="#FFFFFF" stroke-width="24"/>
+                            <path d="M0 212 L800 212" stroke="#D6CFC2" stroke-width="1" stroke-dasharray="8 8"/>
+                            <text x="530" y="216" fill="#4A524D" font-family="Montserrat, sans-serif" font-size="12" font-weight="600" letter-spacing="2">УЛ. СОВЕТСКАЯ</text>
+
+                            <!-- Пересекающая улица -->
+                            <path d="M290 0 L290 400" stroke="#FFFFFF" stroke-width="18"/>
+
+                            <!-- Парковка -->
+                            <rect x="365" y="176" width="56" height="24" rx="6" fill="#5A716A"/>
+                            <text x="393" y="192" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-size="11" font-weight="700">P 24/7</text>
+
+                            <!-- Маркер студии -->
+                            <g transform="translate(430, 145)">
+                                <circle cx="0" cy="0" r="34" fill="#C87D55" fill-opacity="0.2">
+                                    <animate attributeName="r" values="24;38;24" dur="2.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="0" cy="0" r="14" fill="#C87D55" stroke="#FFFFFF" stroke-width="3"/>
+                            </g>
+                            
+                            <!-- Тултип на карте -->
+                            <g transform="translate(455, 112)">
+                                <rect x="0" y="0" width="215" height="58" rx="12" fill="#1F2421"/>
+                                <text x="14" y="24" fill="#FAF8F5" font-family="Cormorant Garamond, serif" font-size="17" font-weight="700">ЛОКОН & СТИЛЬ</text>
+                                <text x="14" y="42" fill="#C87D55" font-family="Montserrat, sans-serif" font-size="11" font-weight="500">ул. Советская, д. 142</text>
+                            </g>
+                        </svg>
+
+                        <!-- Кнопка построения маршрута -->
+                        <div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 bg-cream/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-graphite/10">
+                            <span class="text-xs font-medium text-graphite">Удобный подъезд и парковка прямо перед входом</span>
+                            <a href="https://yandex.ru/maps/?text=Йошкар-Ола, ул. Советская, 142" target="_blank" rel="noopener" class="text-xs font-semibold text-terracotta hover:text-terracotta-dark flex items-center gap-1">
+                                Открыть в Яндекс.Картах →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Мини-форма обратной связи -->
+                    <div class="bg-cream p-6 sm:p-8 rounded-3xl shadow-card border border-graphite/5">
+                        <h3 class="font-serif text-2xl font-bold text-graphite">Остались вопросы или нужна консультация по окрашиванию?</h3>
+                        <p class="text-xs sm:text-sm text-graphite-light mt-1 mb-5">Оставьте номер телефона — стилист перезвонит, сориентирует по стоимости и времени работы</p>
+                        <form id="footer-form" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <input type="text" name="name" required placeholder="Ваше имя" class="px-4 py-3 rounded-xl bg-cream-dark/70 border border-graphite/10 text-sm focus:outline-none focus:border-terracotta">
+                            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="phone-mask px-4 py-3 rounded-xl bg-cream-dark/70 border border-graphite/10 text-sm focus:outline-none focus:border-terracotta">
+                            <button type="submit" class="bg-graphite hover:bg-terracotta text-white font-medium py-3 px-6 rounded-xl text-sm transition-colors">
+                                Жду звонка
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ПОДВАЛ (FOOTER) ================= -->
+    <footer class="bg-graphite text-cream/80 py-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="font-serif text-xl font-bold text-white tracking-wide">ЛОКОН & СТИЛЬ</span>
+                <p class="text-xs text-cream/60 mt-1">Семейная студия красоты и парикмахерская • г. Йошкар-Ола</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs">
+                <a href="#services" class="hover:text-terracotta transition-colors">Услуги</a>
+                <a href="#masters" class="hover:text-terracotta transition-colors">Мастера</a>
+                <a href="#portfolio" class="hover:text-terracotta transition-colors">Работы</a>
+                <a href="#promo" class="hover:text-terracotta transition-colors">Акции</a>
+                <a href="#contacts" class="hover:text-terracotta transition-colors">Контакты</a>
+            </div>
+            <p class="text-xs text-cream/50">© 2026 ЛОКОН & СТИЛЬ. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- ================= 10. МОДАЛЬНОЕ ОКНО ОНЛАЙН-ЗАПИСИ ================= -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-graphite/60 backdrop-blur-sm">
+        <div class="bg-cream text-graphite w-full max-w-lg rounded-3xl shadow-2xl border border-graphite/10 overflow-hidden relative animate-[fadeIn_0.2s_ease-out]">
+            <!-- Кнопка закрытия -->
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-cream-dark hover:bg-graphite hover:text-white flex items-center justify-center transition-colors" aria-label="Закрыть">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- Содержимое формы записи -->
+            <div id="booking-form-container" class="p-6 sm:p-8">
+                <span class="text-xs uppercase tracking-widest text-terracotta font-semibold">Онлайн-запись</span>
+                <h3 class="font-serif text-3xl font-bold text-graphite mt-1">Записаться в студию</h3>
+                <p class="text-xs text-graphite-light mt-1 mb-6">Выберите параметры визита — мы подтвердим запись в WhatsApp или по телефону</p>
+
+                <form id="modal-booking-form" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-graphite mb-1.5">Услуга</label>
+                        <select id="modal-service" name="service" class="w-full px-4 py-3 rounded-xl bg-white border border-graphite/15 text-sm focus:outline-none focus:border-terracotta">
+                            <option value="Консультация / не определился">Консультация стилиста (поможем выбрать)</option>
+                            <option value="Стрижка / окрашивание (акция -15%)">Стрижка / окрашивание (акция -15% на первый визит)</option>
+                            <option value="Женская модельная стрижка + укладка (1 600 ₽)">Женская модельная стрижка + укладка — 1 600 ₽</option>
+                            <option value="Мужская стрижка (1 100 ₽)">Мужская стрижка (машинка + ножницы) — 1 100 ₽</option>
+                            <option value="Детская стрижка до 10 лет (800 ₽)">Детская стрижка (до 10 лет) — 800 ₽</option>
+                            <option value="Сложное окрашивание AirTouch / Шатуш / Балаяж (от 5 500 ₽)">Сложное окрашивание (AirTouch / Шатуш / Балаяж) — от 5 500 ₽</option>
+                            <option value="Окрашивание в один тон (от 2 800 ₽)">Окрашивание в один тон — от 2 800 ₽</option>
+                            <option value="Салонный уход «Счастье для волос» (2 200 ₽)">Салонный уход «Счастье для волос» — 2 200 ₽</option>
+                            <option value="Вечерняя или повседневная укладка (от 1 400 ₽)">Вечерняя или повседневная укладка — от 1 400 ₽</option>
+                            <option value="Оформление и окрашивание бровей (900 ₽)">Оформление и окрашивание бровей — 900 ₽</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-graphite mb-1.5">Мастер</label>
+                            <select id="modal-master" name="master" class="w-full px-4 py-3 rounded-xl bg-white border border-graphite/15 text-sm focus:outline-none focus:border-terracotta">
+                                <option value="Любой свободный мастер">Любой свободный мастер</option>
+                                <option value="Анна Соколова">Анна Соколова (топ-стилист)</option>
+                                <option value="Дмитрий Волков">Дмитрий Волков (стрижки)</option>
+                                <option value="Елена Морозова">Елена Морозова (универсал)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-graphite mb-1.5">Желаемая дата и время</label>
+                            <input type="datetime-local" id="modal-datetime" name="datetime" class="w-full px-4 py-2.5 rounded-xl bg-white border border-graphite/15 text-sm focus:outline-none focus:border-terracotta">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-graphite mb-1.5">Ваше имя *</label>
+                            <input type="text" name="name" required placeholder="Например, Анна" class="w-full px-4 py-3 rounded-xl bg-white border border-graphite/15 text-sm focus:outline-none focus:border-terracotta">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-graphite mb-1.5">Телефон *</label>
+                            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="phone-mask w-full px-4 py-3 rounded-xl bg-white border border-graphite/15 text-sm focus:outline-none focus:border-terracotta">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-terracotta hover:bg-terracotta-dark text-white font-medium py-4 rounded-xl transition-all shadow-soft mt-2 active:scale-95">
+                        Подтвердить запись
+                    </button>
+                </form>
+            </div>
+
+            <!-- Экран успешной отправки заявки -->
+            <div id="booking-success-container" class="hidden p-8 sm:p-10 text-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-sage/15 text-sage flex items-center justify-center mx-auto">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-3xl font-bold text-graphite">Заявка принята!</h3>
+                <p id="booking-success-text" class="text-sm text-graphite-light leading-relaxed max-w-sm mx-auto">
+                    Спасибо! Администратор студии «ЛОКОН & СТИЛЬ» свяжется с вами в течение 5 минут для подтверждения времени визита.
+                </p>
+                <div class="pt-4">
+                    <button onclick="closeBookingModal()" class="px-8 py-3 rounded-full bg-graphite text-white text-sm font-medium hover:bg-terracotta transition-colors">
+                        Вернуться на сайт
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= ЛАЙТБОКС ДЛЯ ПОРТФОЛИО ================= -->
+    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-graphite/85 backdrop-blur-sm">
+        <div onclick="event.stopPropagation()" class="relative max-w-2xl w-full bg-cream rounded-3xl overflow-hidden shadow-2xl">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-cream/90 text-graphite hover:bg-terracotta hover:text-white flex items-center justify-center shadow-md transition-colors">
+                ✕
+            </button>
+            <img id="lightbox-img" src="" alt="Работа студии" class="w-full max-h-[70vh] object-cover">
+            <div class="p-6">
+                <p id="lightbox-master" class="text-xs font-semibold uppercase tracking-wider text-terracotta"></p>
+                <h3 id="lightbox-title" class="font-serif text-2xl font-bold text-graphite mt-1"></h3>
+                <p id="lightbox-desc" class="text-sm text-graphite-light mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ (TOAST) ================= -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-graphite text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-white/10 max-w-sm">
+            <div class="w-8 h-8 rounded-full bg-sage text-white flex items-center justify-center shrink-0">✓</div>
+            <div>
+                <p class="text-sm font-semibold">Заявка отправлена</p>
+                <p id="toast-message" class="text-xs text-white/80 mt-0.5">Мы скоро свяжемся с вами!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ЛОГИКА ================= -->
+    <script>
+        // 1. Мобильное меню
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // 2. Фильтрация услуг и цен
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceItems = document.querySelectorAll('.service-item');
+
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Сброс активных стилей вкладок
+                serviceTabs.forEach(t => {
+                    t.classList.remove('bg-graphite', 'text-white', 'shadow-sm');
+                    t.classList.add('bg-cream-dark', 'text-graphite');
+                });
+                tab.classList.remove('bg-cream-dark', 'text-graphite');
+                tab.classList.add('bg-graphite', 'text-white', 'shadow-sm');
+
+                const filter = tab.getAttribute('data-filter');
+
+                serviceItems.forEach(item => {
+                    const categories = item.getAttribute('data-category').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 3. Фильтрация портфолио
+        const workFilters = document.querySelectorAll('.work-filter');
+        const workCards = document.querySelectorAll('.work-card');
+
+        workFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                workFilters.forEach(b => {
+                    b.classList.remove('bg-graphite', 'text-white');
+                    b.classList.add('bg-cream', 'text-graphite');
+                });
+                btn.classList.remove('bg-cream', 'text-graphite');
+                btn.classList.add('bg-graphite', 'text-white');
+
+                const category = btn.getAttribute('data-work');
+                workCards.forEach(card => {
+                    const cardCats = card.getAttribute('data-work-cat').split(' ');
+                    if (category === 'all' || cardCats.includes(category)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 4. Лайтбокс для просмотра работ
+        const lightboxModal = document.getElementById('lightbox-modal');
+        function openLightbox(cardElement) {
+            const img = cardElement.querySelector('img').src;
+            const master = cardElement.querySelector('p.text-terracotta').textContent;
+            const title = cardElement.querySelector('h3').textContent;
+            const desc = cardElement.querySelector('p.text-white\\/80').textContent;
+
+            document.getElementById('lightbox-img').src = img;
+            document.getElementById('lightbox-master').textContent = master;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-desc').textContent = desc;
+
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            lightboxModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // 5. Модальное окно онлайн-записи с автоподстановкой
+        const bookingModal = document.getElementById('booking-modal');
+        const formContainer = document.getElementById('booking-form-container');
+        const successContainer = document.getElementById('booking-success-container');
+        const serviceSelect = document.getElementById('modal-service');
+        const masterSelect = document.getElementById('modal-master');
+        const datetimeInput = document.getElementById('modal-datetime');
+
+        // Установка завтрашней даты по умолчанию в поле выбора времени
+        function setDefaultDateTime() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(12, 0, 0, 0);
+            const tzOffset = tomorrow.getTimezoneOffset() * 60000;
+            const localISOTime = (new Date(tomorrow - tzOffset)).toISOString().slice(0, 16);
+            datetimeInput.value = localISOTime;
+        }
+        setDefaultDateTime();
+
+        function openBookingModal(preselectedService = '', preselectedMaster = '') {
+            formContainer.classList.remove('hidden');
+            successContainer.classList.add('hidden');
+
+            if (preselectedService) {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value === preselectedService) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (preselectedMaster) {
+                for (let i = 0; i < masterSelect.options.length; i++) {
+                    if (masterSelect.options[i].value === preselectedMaster) {
+                        masterSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            } else {
+                masterSelect.selectedIndex = 0;
+            }
+
+            bookingModal.classList.remove('hidden');
+            bookingModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+            bookingModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Закрытие модальных окон по Escape и клику по фону
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) closeBookingModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closeLightbox();
+            }
+        });
+
+        // 6. Обработка отправки форм и уведомления
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4500);
+        }
+
+        // Отправка формы в модальном окне
+        document.getElementById('modal-booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const service = formData.get('service');
+            
+            document.getElementById('booking-success-text').textContent = 
+                `${name}, ваша заявка на услугу «${service}» успешно принята! Администратор свяжется с вами в течение 5 минут для подтверждения.`;
+            
+            formContainer.classList.add('hidden');
+            successContainer.classList.remove('hidden');
+            this.reset();
+            setDefaultDateTime();
+        });
+
+        // Отправка формы в блоке акции
+        document.getElementById('promo-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = new FormData(this).get('name');
+            showToast(`${name}, скидка 15% и подарок закреплены за вашим номером!`);
+            this.reset();
+        });
+
+        // Отправка формы в контактах
+        document.getElementById('footer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = new FormData(this).get('name');
+            showToast(`${name}, спасибо! Стилист перезвонит вам в ближайшее время.`);
+            this.reset();
+        });
+
+        // 7. Простая маска ввода телефона
+        document.querySelectorAll('.phone-mask').forEach(input => {
+            input.addEventListener('input', function(e) {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                if (!x[2]) {
+                    e.target.value = x[1] ? '+7 ' : '';
+                    return;
+                }
+                e.target.value = '+7 (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+            });
+        });
+
+        // 8. Живой таймер обратного отсчёта для блока акции
+        (function startPromoTimer() {
+            // Задаём дедлайн через 2 дня 14 часов от момента открытия страницы
+            let totalSeconds = (2 * 24 * 3600) + (14 * 3600) + (38 * 60);
+            const daysEl = document.getElementById('timer-days');
+            const hoursEl = document.getElementById('timer-hours');
+            const minsEl = document.getElementById('timer-minutes');
+
+            setInterval(() => {
+                if (totalSeconds <= 0) return;
+                totalSeconds--;
+                const d = Math.floor(totalSeconds / (3600 * 24));
+                const h = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+                const m = Math.floor((totalSeconds % 3600) / 60);
+
+                daysEl.textContent = String(d).padStart(2, '0');
+                hoursEl.textContent = String(h).padStart(2, '0');
+                minsEl.textContent = String(m).padStart(2, '0');
+            }, 1000);
+        })();
+    </script>
+</body>
+</html>
